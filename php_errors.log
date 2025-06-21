@@ -1,0 +1,35 @@
+Script started
+Script started
+Script started
+Script started
+Script started
+Script started
+Script started
+2025-06-21 19:58:31 - Script started
+2025-06-21 19:58:31 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"any message"}
+2025-06-21 19:58:31 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 19:58:31 - Message inserted successfully with ID: 2
+2025-06-21 20:19:27 - Script started
+2025-06-21 20:19:27 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"another one"}
+2025-06-21 20:19:27 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 20:19:27 - Message inserted successfully with ID: 3
+2025-06-21 20:19:27 - Script started
+2025-06-21 20:19:27 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"another one"}
+2025-06-21 20:19:27 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 20:19:27 - Message inserted successfully with ID: 4
+2025-06-21 20:19:34 - Script started
+2025-06-21 20:19:34 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"any message"}
+2025-06-21 20:19:34 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 20:19:34 - Message inserted successfully with ID: 5
+2025-06-21 20:21:30 - Script started
+2025-06-21 20:21:30 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"any message"}
+2025-06-21 20:21:30 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 20:21:30 - Message inserted successfully with ID: 6
+2025-06-21 20:22:34 - Script started
+2025-06-21 20:22:34 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"any message"}
+2025-06-21 20:22:34 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 20:22:34 - Message inserted successfully with ID: 7
+2025-06-21 20:26:59 - Script started
+2025-06-21 20:26:59 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"any message"}
+2025-06-21 20:26:59 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
+2025-06-21 20:26:59 - Message inserted successfully with ID: 8
