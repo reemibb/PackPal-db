@@ -19,7 +19,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// DEBUG: Check if the user ID exists in users table
+
 $checkUser = $conn->prepare("SELECT id FROM users WHERE id = ?");
 $checkUser->bind_param("i", $userId);
 $checkUser->execute();

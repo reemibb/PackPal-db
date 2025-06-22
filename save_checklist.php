@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=utf-8");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 
-// Handle preflight OPTIONS request
+
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit(0);
 }
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $raw_input = file_get_contents("php://input");
 $data = json_decode($raw_input, true);
 
-// Enhanced validation
+
 if (!$data || !is_array($data)) {
     echo json_encode(["success" => false, "message" => "Invalid data received"]);
     exit;
@@ -31,7 +31,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-// Start transaction for data consistency
+
 $conn->begin_transaction();
 
 try {
@@ -43,7 +43,7 @@ try {
 
     $processed = 0;
     foreach ($data as $entry) {
-        // Validate each entry
+        
         if (!isset($entry['user_id'], $entry['packing_list_id'], $entry['item_name'])) {
             error_log("Missing required fields in entry: " . json_encode($entry));
             continue;
@@ -54,7 +54,7 @@ try {
         $item_name = trim($entry['item_name']);
         $is_checked = isset($entry['is_checked']) ? ($entry['is_checked'] ? 1 : 0) : 0;
 
-        // Skip invalid entries
+    
         if ($user_id <= 0 || $packing_list_id <= 0 || empty($item_name)) {
             error_log("Invalid entry values: user_id=$user_id, packing_list_id=$packing_list_id, item_name=$item_name");
             continue;
@@ -73,7 +73,7 @@ try {
         throw new Exception("No valid entries to process");
     }
 
-    // Commit transaction
+    
     $conn->commit();
     echo json_encode([
         "success" => true, 
@@ -82,7 +82,7 @@ try {
     ]);
 
 } catch (Exception $e) {
-    // Rollback transaction on error
+    
     $conn->rollback();
     echo json_encode([
         "success" => false, 

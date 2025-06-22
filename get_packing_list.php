@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Content-Type: application/json; charset=utf-8");
 
-// Handle preflight OPTIONS request
+
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit(0);
 }
@@ -24,7 +24,7 @@ if ($user_id <= 0) {
     exit;
 }
 
-// Get the most recent packing list
+
 $sql = "SELECT id, packing_items, created_at 
         FROM packing_lists 
         WHERE user_id = ? 
@@ -50,7 +50,7 @@ $packing_list_id = $row['id'];
 $created_at = $row['created_at'];
 $items = json_decode($row['packing_items'], true);
 
-// Fallback in case of bad JSON
+
 if (json_last_error() !== JSON_ERROR_NONE || !is_array($items)) {
     echo json_encode([
         "success" => false,
@@ -60,7 +60,7 @@ if (json_last_error() !== JSON_ERROR_NONE || !is_array($items)) {
     exit;
 }
 
-// Fetch checklist status for each item
+
 $packed_status = [];
 $checklist_sql = "SELECT item_name, is_checked FROM checklist WHERE user_id = ? AND packing_list_id = ?";
 $checklist_stmt = $conn->prepare($checklist_sql);
@@ -72,7 +72,7 @@ while ($check = $checklist_result->fetch_assoc()) {
     $packed_status[$check['item_name']] = $check['is_checked'] == 1;
 }
 
-// Response
+
 echo json_encode([
     "success" => true,
     "items" => $items,

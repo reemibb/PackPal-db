@@ -33,3 +33,15 @@ Script started
 2025-06-21 20:26:59 - Raw input: {"user_id":2,"name":"Nour Al Zein","email":"nourAZ@gmail.com","subject":"random subject","message":"any message"}
 2025-06-21 20:26:59 - Parsed data: userId=2, name=Nour Al Zein, email=nourAZ@gmail.com
 2025-06-21 20:26:59 - Message inserted successfully with ID: 8
+2025-06-22 11:20:59 - Script started
+2025-06-22 11:20:59 - Raw input: {"user_id":9,"name":"User User","email":"user@gmail.com","subject":"subjecttttt","message":"messageeeee"}
+2025-06-22 11:20:59 - Parsed data: userId=9, name=User User, email=user@gmail.com
+2025-06-22 11:20:59 - Message inserted successfully with ID: 9
+2025-06-22 15:37:35 - Script started
+2025-06-22 15:37:35 - Raw input: {"user_id":10,"name":"User2","email":"user@gmail.com","subject":"subjecttttt","message":"message 2"}
+2025-06-22 15:37:35 - Parsed data: userId=10, name=User2, email=user@gmail.com
+2025-06-22 15:37:35 - Message inserted successfully with ID: 10
+2025-06-22 17:37:07 - Script started
+2025-06-22 17:37:07 - Raw input: {"user_id":10,"name":"User2","email":"user@gmail.com","subject":"subjecttttt","message":"....."}
+2025-06-22 17:37:07 - Parsed data: userId=10, name=User2, email=user@gmail.com
+2025-06-22 17:37:07 - Message inserted successfully with ID: 11

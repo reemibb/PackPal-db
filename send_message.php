@@ -8,16 +8,16 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Content-Type: application/json; charset=utf-8");
 
-// Handle preflight OPTIONS request
+
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit(0);
 }
 
-// Log the start
+
 file_put_contents('php_errors.log', date('Y-m-d H:i:s') . " - Script started\n", FILE_APPEND);
 
 try {
-    // Get and validate input data
+    
     $raw_input = file_get_contents("php://input");
     file_put_contents('php_errors.log', date('Y-m-d H:i:s') . " - Raw input: " . $raw_input . "\n", FILE_APPEND);
     
@@ -27,7 +27,7 @@ try {
         throw new Exception("Invalid JSON data received");
     }
     
-    // Validate required fields
+    
     $required_fields = ['user_id', 'name', 'email', 'subject', 'message'];
     foreach ($required_fields as $field) {
         if (!isset($data[$field]) || empty(trim($data[$field]))) {
@@ -43,17 +43,17 @@ try {
     
     file_put_contents('php_errors.log', date('Y-m-d H:i:s') . " - Parsed data: userId=$userId, name=$name, email=$email\n", FILE_APPEND);
     
-    // Validate email format
+    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         throw new Exception("Invalid email format");
     }
     
-    // Validate user_id
+    
     if ($userId <= 0) {
         throw new Exception("Invalid user ID");
     }
     
-    // Connect to database
+    
     $conn = new mysqli("localhost", "root", "", "final_asp");
     $conn->set_charset("utf8mb4");
     
@@ -61,7 +61,7 @@ try {
         throw new Exception("Database connection failed: " . $conn->connect_error);
     }
     
-    // Check if user exists (optional - you might want to allow messages from non-users)
+    
     $checkUser = $conn->prepare("SELECT id FROM users WHERE id = ?");
     if (!$checkUser) {
         throw new Exception("Prepare user check failed: " . $conn->error);
@@ -73,12 +73,10 @@ try {
     
     if ($userResult->num_rows === 0) {
         file_put_contents('php_errors.log', date('Y-m-d H:i:s') . " - User ID $userId not found\n", FILE_APPEND);
-        // You might want to comment this out if you allow messages from non-registered users
-        // throw new Exception("User not found");
     }
     $checkUser->close();
     
-    // Insert message
+    
     $sql = "INSERT INTO messages (user_id, name, email, subject, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())";
     $stmt = $conn->prepare($sql);
     
