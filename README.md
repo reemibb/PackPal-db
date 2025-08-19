@@ -1,1 +1,1 @@
-Database for PackPal-web-app.
+Local database for PackPal-web-app, using xampp and php.
